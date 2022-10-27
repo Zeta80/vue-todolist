@@ -17,7 +17,7 @@
 <body>
     <div id="app" class="container">
         <header>
-            <h1>THE LIST NEVER MISS</h1>
+            <h1>THE LIST THAT NEVER FORGET</h1>
 
             <div class="new-task">
                 <label for="tasl-text">Nuovo Task</label>
@@ -33,7 +33,8 @@
             <div class="task-container">
                 <p v-if="tasks.length === 0">PER OGGI HAI FINITO!</p>
                 <ul v-else>
-                    <li v-for="(task, index) in tasks">{{task.name}} <span class="task-delete"
+                    <li :class="task.done === true ? 'done-task' : ''" @click="doneTask(index)"
+                        v-for="(task, index) in tasks">{{task.name}} <span class="task-delete"
                             @click="deleteTask">&cross;</span></li>
                 </ul>
             </div>

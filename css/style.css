@@ -65,10 +65,20 @@ h1 {
     background-color: orange;
 }
 
+.done-task {
+    color: rgb(0, 255, 4);
+    text-decoration: line-through
+}
+
+.done-task.task-delete {
+    text-decoration: none;
+}
+
 .task-delete {
     color: red;
     font-size: 1.5rem;
     cursor: pointer;
+
 }
 
 .error {
