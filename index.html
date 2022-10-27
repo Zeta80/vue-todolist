@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- VUE SCRIPT -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- MY SCRIPT -->
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <header>
+            <h1>THE LIST NEVER MISS</h1>
+
+            <div class="new-task">
+                <label for="tasl-text">Nuovo Task</label>
+                <input type="text" id="task-text" placeholder="Inserisci nuovo task" v-model.trim="newTask.name"
+                    @keyup.enter="addNewTask">
+                <button @click="addNewTask">Inserisci</button>
+
+                <div class="error" v-if="hasError">
+                    <small>Il task deve essere lungo almeno 5 caratteri</small>
+                </div>
+            </div>
+
+            <div class="task-container">
+                <p v-if="tasks.length === 0">PER OGGI HAI FINITO!</p>
+                <ul v-else>
+                    <li v-for="(task, index) in tasks">{{task.name}} <span class="task-delete"
+                            @click="deleteTask">&cross;</span></li>
+                </ul>
+            </div>
+        </header>
+
+    </div>
+</body>
+
+</html>
