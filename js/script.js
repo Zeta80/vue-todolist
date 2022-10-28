@@ -56,7 +56,9 @@ createApp({
         },
         deleteTask(indexOfTasks) {
             //quando terminiamo tutti i task facciamo apparire una scritta
+            console.log(indexOfTasks);
             this.tasks.splice(indexOfTasks, 1);
+
         },
         doneTask(indexOfTasks) {
             // this.tasks.done = !this.tasks.done
